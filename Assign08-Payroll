@@ -1,0 +1,62 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	char dollarSign = '$';
+	double payrollAccum = 0.00;
+	int recordCnt = 0;
+	int employeeID;
+	string lastName, firstName, ssn, payGrade;
+	string payCode;
+	double hoursWorked = 0.00;
+	double payAmt = 0.00;
+	double totalPay;
+	ifstream timeSheet;
+	ifstream hourlyPay;
+
+	timeSheet.open("TimeSheet.txt");
+	if (!timeSheet)
+	{
+		cout << endl << "Error Opening File.";
+		system("pause");
+		return -1;
+	}
+
+	timeSheet >> employeeID;
+	while (!timeSheet.eof())
+	{
+		timeSheet >> lastName >> firstName >> ssn >> payGrade >> hoursWorked;
+
+		hourlyPay.open("HourlyPay.txt");
+		hourlyPay >> payCode >> payAmt;
+		while (!hourlyPay.eof())
+		{
+			if (payGrade == payCode)
+			{
+				totalPay = payAmt * hoursWorked;
+			}
+			hourlyPay >> payCode >> payAmt;
+		}
+		hourlyPay.close();
+
+		cout << endl << left << setw(7) << employeeID << setw(8) << fixed << setprecision(2) << payGrade << dollarSign 
+			 << right << setw(9) << totalPay << setw(13) << ssn << "  " << left << lastName << ", " << firstName;
+		dollarSign = ' ';
+
+		recordCnt++;
+		payrollAccum += totalPay;
+
+		timeSheet >> employeeID;
+	}
+
+	cout << "\n\n\n" << recordCnt << " pay records   $ " << payrollAccum << "  total payroll";
+
+	cout << endl << endl;
+	system("pause");
+    return 0;
+}
