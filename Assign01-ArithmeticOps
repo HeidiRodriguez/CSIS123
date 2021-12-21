@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int firstInt, secondInt;
+	int result;
+
+	cout << endl << "Arithmetic Operations on Two Integers";
+	cout << endl << endl << "Enter the first integer:   ";
+	cin >> firstInt;
+	cout << endl << "Enter the second integer:  ";
+	cin >> secondInt;
+
+	result = firstInt + secondInt;
+	cout << endl << firstInt << " + " << secondInt << " = " << result;
+
+	result = firstInt - secondInt;
+	cout << endl << endl << firstInt << " - " << secondInt << " = " << result;
+
+	result = abs(firstInt - secondInt);
+	cout << endl << endl << firstInt << " - " << secondInt << " = " << result << "      <absolute difference>";
+
+	result = firstInt * secondInt;
+	cout << endl << endl << firstInt << " * " << secondInt << " = " << result;
+
+	result = firstInt / secondInt;
+	cout << endl << endl << firstInt << " / " << secondInt << " = " << result;
+
+	result = firstInt % secondInt;
+	cout << endl << endl << firstInt << " % " << secondInt << " = " << result;
+
+	cout << endl << endl;
+	system("pause");
+	return 0;
+}
