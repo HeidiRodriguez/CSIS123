@@ -1,0 +1,59 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	const double INCOME_LIMIT_MO = 37750;
+	const double INCOME_LIMIT_KS = 34500;
+	const double CREDIT_RATE = 0.0975;
+	char homeowner;
+	string state;
+	double annualIncome;
+	double creditAmount;
+
+	cout << endl << "Are you a homeowner [Y/N]?  ";
+	cin >> homeowner;
+	if (homeowner == 'Y' || homeowner == 'y')
+	{
+		cout << endl << "Resident State [MO or KS]:  ";
+		cin >> state;
+		if (state == "MO" || state == "Mo" || state == "mo")
+		{
+			cout << endl << "  Amount of annual income:  ";
+			cin >> annualIncome;
+			if (annualIncome <= INCOME_LIMIT_MO)
+			{
+				creditAmount = annualIncome * CREDIT_RATE;
+				cout << fixed << setprecision(0) << endl << "Allowed amount of credit:  $ " << creditAmount;
+			}
+			else
+				cout << endl << "Applicant ineligible. Income too high.";
+		}
+		else if (state == "KS" || state == "Ks" || state == "ks")
+		{
+			cout << endl << "  Amount of annual income:  ";
+			cin >> annualIncome;
+			if (annualIncome <= INCOME_LIMIT_KS)
+			{
+				creditAmount = annualIncome * CREDIT_RATE;
+				cout << fixed << setprecision(0) << endl << "Allowed amount of credit:  $ " << creditAmount;
+			}
+			else
+				cout << endl << "Applicant ineligible. Income too high";
+		}
+		else
+			cout << endl << "Applicant ineligible. Not a resident of Missouri or Kansas.";
+	}
+	else
+		cout << "Applicant ineligible. Not a homeowner.";
+
+
+
+
+	cout << endl;
+	system("pause");
+    return 0;
+}
