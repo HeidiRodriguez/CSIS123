@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string first, middle, last;
+	int quantity;
+	const double PRICE = 27.95;
+	double orderSum;
+
+	cout << endl << "  First name:  ";
+	cin >> first;
+	cout << endl << "      Middle:  ";
+	cin >> middle;
+	cout << endl << "   Last name:  ";
+	cin >> last;
+	cout << endl << "    Quantity:  ";
+	cin >> quantity;
+
+	orderSum = quantity * PRICE;
+
+	cout << endl << endl << " === Subscription Order ===\n";
+	cout << " " << first << " " << middle << " " << last;
+	cout << endl << fixed << setprecision(2) << " " << quantity << "   @  $"
+		<< PRICE << "   $" << orderSum;
+
+	cout << endl;
+	system("pause");
+    return 0;
+}
