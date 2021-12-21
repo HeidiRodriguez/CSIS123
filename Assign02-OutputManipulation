@@ -1,0 +1,51 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string	first;
+	string	middle;
+	string  last;
+	int		age;
+
+	double prevBalance = 10000;
+	double expenditures;
+	double currBalance;
+
+	cout << endl << "Type in the FIRST name:  ";
+	cin >> first;
+	cout << endl << "MIDDLE name or initial:  ";
+	cin >> middle;
+	cout << endl << "Type in the  LAST name:  ";
+	cin >> last;
+	cout << endl << "Enter the AGE in years:  ";
+	cin >> age;
+
+	cout << endl << endl << endl;
+	cout << left << setw(18) << "First name" << setw(15) << "Middle" << setw(20) << "Last name"
+		 << right << setw(3) << "Age";
+	cout << endl << left << setw(18) << "----------" << setw(15) << "------" << setw(20) << "---------"
+		<< right << setw(3) << "---";
+	cout << endl << left << setw(18) << first << setw(15) << middle << setw(20) << last
+		<< right << setw(3) << age;
+
+	cout << endl << endl << endl << endl;
+	cout << "Amount of expenditures:  ";
+	cin >> expenditures;
+
+	currBalance = prevBalance - expenditures;
+
+	cout << endl << endl;
+	cout << "   Previous Balance:  $" << fixed << setprecision(2) << setw(10) << prevBalance;
+	cout << endl << "                      -" << setw(10) << expenditures;
+	cout << endl << "                       ----------";
+	cout << endl << "    Current Balance:  $" << setw(10) << currBalance;
+	cout << endl << endl << "   Formatted Output:  $" << setfill('#') << setw(10) << currBalance;
+
+	cout << endl << endl;
+	system("pause");
+    return 0;
+}
